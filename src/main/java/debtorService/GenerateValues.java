@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GenerateValues {
 
-    String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    String candidateChars = "1234567890";
     int referenceNumberLength = 10;
 
 
