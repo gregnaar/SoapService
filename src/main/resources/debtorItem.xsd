@@ -12,16 +12,16 @@
     <xs:element name="getDebtorItemResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="debtorItem" type="tns:debtorItem"/>
+                <xs:element name="debtorItem" type="tns:debtorItem" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
     <xs:complexType name="debtorItem">
         <xs:sequence>
-            <xs:element name="referenceNumber" type="xs:string"/>
+            <xs:element name="referenceNumber" type="xs:int"/>
             <xs:element name="dueDate" type="xs:date"/>
-            <xs:element name="amount" type="xs:string"/>
+            <xs:element name="amount" type="xs:int"/>
             <xs:element name="customerVatNumber" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>

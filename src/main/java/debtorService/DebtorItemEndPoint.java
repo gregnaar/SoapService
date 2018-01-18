@@ -9,6 +9,9 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import io.spring.guides.gs_producing_web_service.GetDebtorItemRequest;
 import io.spring.guides.gs_producing_web_service.GetDebtorItemResponse;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import java.util.concurrent.ThreadLocalRandom;
+
 @Endpoint
 public class DebtorItemEndPoint {
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
@@ -22,10 +25,15 @@ public class DebtorItemEndPoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getDebtorItemRequest")
     @ResponsePayload
-    public GetDebtorItemResponse getDebtorItem(@RequestPayload GetDebtorItemRequest request) {
+    public GetDebtorItemResponse getDebtorItem(@RequestPayload GetDebtorItemRequest request) throws DatatypeConfigurationException {
         GetDebtorItemResponse response = new GetDebtorItemResponse();
-        response.setDebtorItem(debtorItemRepository.findDebtorItem(request.getCustomerVatNumber()));
+        response.getDebtorItem().add(debtorItemRepository.findDebtorItem(request.getCustomerVatNumber()));
 
+        for (int i = ThreadLocalRandom.current().nextInt(1, 9); i!=0;i--)
+        {
+            response.getDebtorItem().add(debtorItemRepository.findDebtorItem(request.getCustomerVatNumber()));
+            debtorItemRepository.generateData();
+        }
         return response;
     }
 }

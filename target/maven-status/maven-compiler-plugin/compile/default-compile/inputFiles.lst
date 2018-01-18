@@ -6,4 +6,5 @@
 /home/adamkovacs/git/gs-soap-service/SoapService/src/main/java/debtorService/DebtorItemEndPoint.java
 /home/adamkovacs/git/gs-soap-service/SoapService/src/main/java/debtorService/WebServiceConfig.java
 /home/adamkovacs/git/gs-soap-service/SoapService/src/main/java/debtorService/Application.java
+/home/adamkovacs/git/gs-soap-service/SoapService/src/main/java/debtorService/GenerateValues.java
 /home/adamkovacs/git/gs-soap-service/SoapService/src/main/java/io/spring/guides/gs_producing_web_service/GetDebtorItemRequest.java
