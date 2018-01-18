@@ -31,8 +31,8 @@ public class DebtorItemEndPoint {
 
         for (int i = ThreadLocalRandom.current().nextInt(1, 9); i!=0;i--)
         {
-            response.getDebtorItem().add(debtorItemRepository.findDebtorItem(request.getCustomerVatNumber()));
             debtorItemRepository.generateData();
+            response.getDebtorItem().add(debtorItemRepository.findDebtorItem(request.getCustomerVatNumber()));
         }
         return response;
     }
